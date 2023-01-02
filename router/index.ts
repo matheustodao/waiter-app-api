@@ -1,7 +1,8 @@
+import express from 'express';
+
 import { OrdersRouter } from './routes/orders';
 import { ProductsRouter } from './routes/products';
 import { CategoriesRouter } from './routes/categories';
-import express from 'express';
 
 export const router = express.Router({ mergeParams: true });
 
