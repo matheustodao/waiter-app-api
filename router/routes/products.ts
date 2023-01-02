@@ -1,9 +1,10 @@
 import { Router } from 'express';
+import { CreateProduct } from '../../app/usecases/products/createProduct';
+import { ListProducts } from '../../app/usecases/products/listProducts';
+import { productUpload } from '../middlewares/multer/product';
 
 export const ProductsRouter = Router();
 
-ProductsRouter.get('', (req, res) => res.json({ category: 'content' }));
+ProductsRouter.get('', ListProducts);
 
-ProductsRouter.post('', (req, res) => res.json({ category: 'create' }));
-
-ProductsRouter.get('/categories/:categoryId', (req, res) => res.json({ categoryId: req.params?.categoryId }));
+ProductsRouter.post('', productUpload.single('image'), CreateProduct);
