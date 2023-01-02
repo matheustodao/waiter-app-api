@@ -1,7 +1,9 @@
 import { Router } from 'express';
+import { CreateCategory } from '../../app/usecases/categories/createCategory';
+import { ListCategories } from '../../app/usecases/categories/listCategories';
 
 export const CategoriesRouter = Router();
 
-CategoriesRouter.get('', (req, res) => res.json({ category: 'content' }));
+CategoriesRouter.get('', ListCategories);
 
-CategoriesRouter.post('', (req, res) => res.json({ category: 'create' }));
+CategoriesRouter.post('', CreateCategory);
