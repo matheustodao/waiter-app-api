@@ -10,12 +10,12 @@ export async function CreateProduct(req: Request, res: Response) {
     category,
   } = req.body;
 
-  const imagePaths = req.file?.filename;
+  const imagePath = req.file?.filename;
 
   if (
     !name ||
     !description ||
-    !imagePaths ||
+    !imagePath ||
     !price ||
     !category
   ) {
@@ -29,7 +29,7 @@ export async function CreateProduct(req: Request, res: Response) {
     ingredients: ingredients ? JSON.parse(ingredients) : [],
     category,
     description,
-    imagePaths,
+    imagePath,
   });
 
   res.status(201).json(product);

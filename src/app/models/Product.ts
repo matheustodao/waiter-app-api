@@ -11,7 +11,7 @@ export const Product = model('Product', new Schema({
     required: true,
   },
 
-  imagePaths: {
+  imagePath: {
     type: String,
     required: true,
   },
